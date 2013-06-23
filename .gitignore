@@ -1,0 +1,6 @@
+bin
+*.jar
+.*.*wp
+build
+*.log
+*.dat

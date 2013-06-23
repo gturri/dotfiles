@@ -1,0 +1,8 @@
+[core]
+	editor = vim
+[alias]
+	st = status
+    ci = commit
+    a = add
+    fe = fetch --all
+    re = remote -v
