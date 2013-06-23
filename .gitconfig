@@ -2,7 +2,8 @@
 	editor = vim
 [alias]
 	st = status
-    ci = commit
-    a = add
-    fe = fetch --all
-    re = remote -v
+	ci = commit
+	a  = add
+	fe = fetch --all
+	re = remote -v
+	co = checkout
