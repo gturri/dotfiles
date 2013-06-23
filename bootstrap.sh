@@ -63,6 +63,15 @@ setup_gitconfig () {
   fi
 }
 
+setup_vimrc(){
+  cp -f vimrc .vimrc
+}
+
+setup_bashrc(){
+  cp -f bash_aliases .bash_aliases
+  echo "PATH=\$PATH:$DOTFILES_ROOT/bin" >> .bash_aliases
+}
+
 link_files () {
   ln -s $1 $2
   success "linked $1 to $2"
@@ -129,6 +138,8 @@ install_dotfiles () {
 }
 
 setup_gitconfig
+setup_vimrc
+setup_bashrc
 install_dotfiles
 
 # If we are on a mac, lets install and setup homebrew
