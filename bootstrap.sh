@@ -84,7 +84,7 @@ install_dotfiles () {
   backup_all=false
   skip_all=false
 
-  for source in  .bash_aliases .vimrc; do
+  for source in  .bash_aliases .vimrc .gitconfig; do
     source=${DOTFILES_ROOT}/$source
     dest="$HOME/`basename $source`"
   
