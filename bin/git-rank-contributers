@@ -28,6 +28,8 @@ class String
 end
 
 lines = {}
+added = {}
+removed = {}
 verbose = ARGV.delete("-v")
 obfuscate = ARGV.delete("-o")
 htmlize = ARGV.delete("-h")
@@ -40,20 +42,29 @@ state = :pre_author
     author = $1
     state = :post_author
     lines[author] ||= 0
+    added[author] ||= 0
+    removed[author] ||= 0
   when state == :post_author && l =~ /^\+\+\+/
     state = :in_diff
   when state == :in_diff && l =~ /^[\+\-]/
     lines[author] += 1
+    case 
+    when state == :in_diff && l =~ /^[\+]/
+      added[author] += 1
+    when state == :in_diff && l =~ /^[\-]/
+      removed[author] += 1
+    end
   when state == :in_diff && l =~ /^commit /
     state = :pre_author
   end
 end
 
 lines.sort_by { |a, c| -c }.each do |a, c|
+  aorig = a
   a = a.obfuscate if obfuscate
   a = a.htmlize if htmlize
   if verbose
-    puts "#{a}: #{c} lines of diff"
+    puts "#{a}: #{c} lines of diff (+: " + added[aorig].to_s + ", -: " + removed[aorig].to_s + ")"
   else
     puts a
   end
