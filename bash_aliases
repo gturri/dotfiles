@@ -4,7 +4,7 @@ alias gitc='git reset --hard & git clean -fxd'
 
 alias exi='exit'
 alias ownc='rm -f ~/owncloud.log && owncloud --logfile ~/owncloud.log --logflush'
-alias xd='cd ..'
+alias xs='cd ..'
 alias dush='du -s * | sort -n | cut -f 2 | xargs du -sh'
 alias ll='ls -l'
 alias la='ls -a'
