@@ -7,6 +7,7 @@
 [alias]
 	st = status
 	ci = commit
+	ca = commit -a
 	a  = add
 	fe = fetch --all
 	re = remote -v
