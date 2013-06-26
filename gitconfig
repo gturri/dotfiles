@@ -9,6 +9,7 @@
 	ci = commit
 	ca = commit -a
 	cam = commit -am
+	cim = commit -m
 	a  = add
 	fe = fetch --all
 	re = remote -v
