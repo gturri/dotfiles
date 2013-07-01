@@ -14,3 +14,5 @@
 	fe = fetch --all
 	re = remote -v
 	co = checkout
+	br = branch
+	brf = branch -f
