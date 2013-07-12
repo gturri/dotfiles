@@ -1,7 +1,7 @@
 alias g='git'
 alias gikt='gitk'
 alias gitc='git reset --hard & git clean -fxd'
-alias gitka='gitk --all &'
+alias gitka='gitk --all HEAD &'
 
 alias exi='exit'
 alias ownc='rm -f ~/owncloud.log && owncloud --logfile ~/owncloud.log --logflush'
