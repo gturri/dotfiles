@@ -49,7 +49,8 @@ fail () {
 }
 
 setup_gitconfig () {
-  if ! [ -f .gitconfig ]; then
+  gitnameCacheFile=.gitconfig.name
+  if ! [ -f ${gitnameCacheFile} ]; then
     info 'setup gitconfig'
 
     user ' - What is your github author name?'
@@ -57,10 +58,13 @@ setup_gitconfig () {
     user ' - What is your github author email?'
     read -e git_authoremail
 
-    sed -e "s/@AUTHORNAME@/$git_authorname/g" -e "s/@AUTHOREMAIL@/$git_authoremail/g" gitconfig > .gitconfig
-
-    success 'gitconfig'
+    echo "[user]" > ${gitnameCacheFile}
+    echo "  name = $git_authoremail" >> ${gitnameCacheFile}
+    echo "  email = $git_authoremail" >> ${gitnameCacheFile}
   fi
+
+  cat ${gitnameCacheFile} gitconfig > .gitconfig
+  success 'gitconfig'
 }
 
 setup_vimrc(){
