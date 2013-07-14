@@ -59,7 +59,7 @@ setup_gitconfig () {
     read -e git_authoremail
 
     echo "[user]" > ${gitnameCacheFile}
-    echo "  name = $git_authoremail" >> ${gitnameCacheFile}
+    echo "  name = $git_authorname" >> ${gitnameCacheFile}
     echo "  email = $git_authoremail" >> ${gitnameCacheFile}
   fi
 
