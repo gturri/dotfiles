@@ -1,0 +1,20 @@
+#!/usr/bin/env bash
+
+if [ $# -ne 1 ]; then
+  echo "expected the number of the merge request"
+  exit -1
+fi
+
+idMR=$1
+branchName=mr${idMR}
+
+git fetch origin refs/merge-requests/${idMR}
+
+if [ ${branchName} = $(git cur-br) ]; then
+  #Make sure the current branch isn't the one we're trying to update
+  git checkout HEAD^
+fi
+
+git checkout -B ${branchName} FETCH_HEAD
+
+
