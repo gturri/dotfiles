@@ -11,6 +11,7 @@
 	re = remote -v
 	co = checkout
     cob = checkout -b
+    cobf = checkout -B
 	br = branch
 	brf = branch -f
     me = merge
