@@ -1,4 +1,8 @@
 alias g='git'
+complete -o bashdefault -o default -o nospace -F _git g 2>/dev/null \
+	|| complete -o default -o nospace -F _git g
+
+
 alias gikt='gitk'
 alias gitc='git reset --hard & git clean -fxd'
 alias gitka='gitk --all HEAD &'
