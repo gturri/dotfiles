@@ -5,4 +5,18 @@ if [ $# -ne 1 ]; then
   exit -1
 fi
 
-git push origin HEAD:refs/merge-requests/$1
+idMR=$1
+branchName=mr${idMR}
+destBranch=ReadyForProduction
+
+git fetch origin
+git checkout origin/${destBranch}
+git merge --no-ff ${branchName}
+
+echo "Fix merge if needed"
+internal/pause.sh
+
+git push origin HEAD${destBranch}
+
+
+
