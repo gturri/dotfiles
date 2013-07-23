@@ -15,3 +15,5 @@
 	br = branch
 	brf = branch -f
     me = merge
+    ri = rebase -i
+    ri2 = rebase -i HEAD^^
