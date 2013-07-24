@@ -14,9 +14,9 @@ git checkout origin/${destBranch}
 git merge --no-ff ${branchName}
 
 echo "Fix merge if needed"
-internal/pause.sh
+./internal/pause.sh
 
-git push origin HEAD${destBranch}
+git push origin HEAD:${destBranch}
 
 
 
