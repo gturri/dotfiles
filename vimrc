@@ -21,3 +21,7 @@ inoremap kj <Esc>
 
 "when a file called .vimrc is written, we load ~/.vimrc
 autocmd! BufWritePost .vimrc source ~/.vimrc
+
+" Highlight redundant whitespaces and tabs.
+highlight RedundantSpaces ctermbg=red guibg=red
+match RedundantSpaces /\s\+$\| \+\ze\t\|\t/
