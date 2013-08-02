@@ -17,5 +17,6 @@
     me = merge
     ri = rebase -i
     ri2 = rebase -i HEAD^^
+    chp = cherry-pick
 [gui]
 	gcwarning = false
