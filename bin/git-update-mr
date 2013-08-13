@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+
+if [ $# -ne 1 ]; then
+  echo "expected the number of the merge request"
+  exit -1
+fi
+
+idMR=$1
+
+git push origin HEAD:refs/merge-requests/${idMR}
