@@ -18,5 +18,6 @@
     ri = rebase -i
     ri2 = rebase -i HEAD^^
     chp = cherry-pick
+    rh = reset --hard
 [gui]
 	gcwarning = false
