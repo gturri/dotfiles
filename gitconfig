@@ -19,5 +19,6 @@
     ri2 = rebase -i HEAD^^
     chp = cherry-pick
     rh = reset --hard
+    cl = clone
 [gui]
 	gcwarning = false
