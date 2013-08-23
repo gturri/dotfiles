@@ -15,6 +15,7 @@
 	br = branch
 	brf = branch -f
     me = merge
+    men = merge --no-ff
     ri = rebase -i
     ri2 = rebase -i HEAD^^
     chp = cherry-pick
