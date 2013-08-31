@@ -1,0 +1,2 @@
+#!/usr/bin/env bash
+git push gerrit HEAD:refs/publish/master
