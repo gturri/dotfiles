@@ -6,6 +6,7 @@ set sts=4
 set expandtab
 set autoindent
 set hlsearch
+set smartcase
 
 set incsearch
 set ignorecase
