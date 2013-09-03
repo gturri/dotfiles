@@ -7,7 +7,7 @@ fi
 
 idMR=$1
 branchName=mr${idMR}
-destBranch=ReadyForProduction
+destBranch=master
 
 git fetch origin
 git checkout origin/${destBranch}
