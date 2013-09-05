@@ -21,5 +21,6 @@
     chp = cherry-pick
     rh = reset --hard
     cl = clone
+    tagf = tag -f
 [gui]
 	gcwarning = false
