@@ -14,6 +14,7 @@
     cobf = checkout -B
 	br = branch
 	brf = branch -f
+    bra = branch -a
     me = merge
     men = merge --no-ff
     ri = rebase -i
