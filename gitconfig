@@ -24,3 +24,7 @@
     tagf = tag -f
 [gui]
 	gcwarning = false
+[merge]
+    tool = vimdiff
+[difftool]
+	prompt = false
