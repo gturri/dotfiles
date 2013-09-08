@@ -4,3 +4,4 @@ bin
 build
 *.log
 *.dat
+node_modules
