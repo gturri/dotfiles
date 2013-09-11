@@ -1,27 +1,27 @@
 [core]
 	editor = vim
 [alias]
-	st = status
+	a  = add
+	br = branch
+	brf = branch -f
 	c = commit
 	ca = commit -a
 	cam = commit -am
 	cm = commit -m
-	a  = add
+	co = checkout
 	fe = fetch --all
 	re = remote -v
-	co = checkout
+	st = status
+    bra = branch -a
+    chp = cherry-pick
+    cl = clone
     cob = checkout -b
     cobf = checkout -B
-	br = branch
-	brf = branch -f
-    bra = branch -a
     me = merge
     men = merge --no-ff
+    rh = reset --hard
     ri = rebase -i
     ri2 = rebase -i HEAD^^
-    chp = cherry-pick
-    rh = reset --hard
-    cl = clone
     tagf = tag -f
 [gui]
 	gcwarning = false
