@@ -98,7 +98,7 @@ setup_gitconfig () {
   if ! [ -f ${gitnameCacheFile} ]; then
     info 'setup gitconfig'
 
-    if [ -n $nonInteractive ]; then
+    if [ -n "$nonInteractive" ]; then
        git_authorname=$name
        git_authoremail=$email
     else
@@ -138,7 +138,7 @@ install_dotfiles () {
   backup_all=false
   skip_all=false
 
-  if [ -n $nonInteractive ]; then
+  if [ -n "$nonInteractive" ]; then
     overwrite_all=true
   fi
 
