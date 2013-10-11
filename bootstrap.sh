@@ -26,10 +26,6 @@
 
 DOTFILES_ROOT="`pwd`"
 
-set -e
-
-echo ''
-
 info () {
   printf " [ \033[00;34m..\033[0m ] $1"
 }
@@ -48,15 +44,69 @@ fail () {
   exit
 }
 
+print_help(){
+  info "Install dotfiles. Optional arguments:"; echo ""
+  info "  -h: print this help"; echo ""
+  info "  --non-interactive: run in a non interactive mode."; echo ""
+  info "  --name=your_name: your name (needed for non interactive mode)"; echo ""
+  info "  --email=your_email: your email (needed for non interactive mode)"; echo ""
+}
+
+nonInteractive=""
+name=""
+email=""
+
+for i in "$@"; do
+  case $i in
+    -h|--help)
+      print_help
+      exit 0
+    ;;
+    --non-interactive)
+      nonInteractive=y
+    ;;
+    --name=*)
+      name=$(echo $i | sed 's/--name=//')
+    ;;
+    --email=*)
+      email=$(echo $i | sed 's/--email=//')
+    ;;
+  esac
+done
+
+if [ -n "$nonInteractive" ]; then
+  if [ -z "$name" ]; then
+    fail "non interactive mode requires --name"
+    exit 1
+  else
+    info "will use name: $name"; echo""
+  fi
+  if [ -z "$email" ]; then
+    fail "non interactive mode requires --email"
+    exit 1
+  else
+    info "will use email: $email"; echo ""
+  fi
+fi
+
+set -e
+
+echo ''
+
 setup_gitconfig () {
   gitnameCacheFile=.gitconfig.name
   if ! [ -f ${gitnameCacheFile} ]; then
     info 'setup gitconfig'
 
-    user ' - What is your github author name?'
-    read -e git_authorname
-    user ' - What is your github author email?'
-    read -e git_authoremail
+    if [ -n $nonInteractive ]; then
+       git_authorname=$name
+       git_authoremail=$email
+    else
+      user ' - What is your github author name?'
+      read -e git_authorname
+      user ' - What is your github author email?'
+      read -e git_authoremail
+    fi
 
     echo "[user]" > ${gitnameCacheFile}
     echo "  name = $git_authorname" >> ${gitnameCacheFile}
@@ -87,6 +137,10 @@ install_dotfiles () {
   overwrite_all=false
   backup_all=false
   skip_all=false
+
+  if [ -n $nonInteractive ]; then
+    overwrite_all=true
+  fi
 
   for source in  .bash_aliases .vimrc .gitconfig; do
     source=${DOTFILES_ROOT}/$source
