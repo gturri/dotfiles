@@ -17,6 +17,13 @@ set fileencoding=utf8
 set fileformats=unix
 syntax on
 
+set backspace=indent,eol,start
+set laststatus=2
+set ruler
+set showcmd
+set scrolloff=1
+set sidescrolloff=5
+
 "Let quit insert mode with "kj"
 inoremap kj <Esc> 
 
