@@ -30,6 +30,11 @@ info () {
   printf " [ \033[00;34m..\033[0m ] $1"
 }
 
+infoLF () {
+  info "$1"
+  echo ""
+}
+
 user () {
   printf "\r [ \033[0;33m?\033[0m ] $1 "
 }
@@ -48,8 +53,8 @@ print_help(){
   info "Install dotfiles. Optional arguments:"; echo ""
   info "  -h: print this help"; echo ""
   info "  --non-interactive: run in a non interactive mode."; echo ""
-  info "  --name=your_name: your name (needed for non interactive mode)"; echo ""
-  info "  --email=your_email: your email (needed for non interactive mode)"; echo ""
+  info "  --name=your_name: your name"; echo ""
+  info "  --email=your_email: your email"; echo ""
 }
 
 nonInteractive=""
@@ -76,16 +81,14 @@ done
 
 if [ -n "$nonInteractive" ]; then
   if [ -z "$name" ]; then
-    fail "non interactive mode requires --name"
-    exit 1
+    infoLF "non interactive mode would work better with --name"
   else
-    info "will use name: $name"; echo""
+    infoLF "will use name: $name";
   fi
   if [ -z "$email" ]; then
-    fail "non interactive mode requires --email"
-    exit 1
+    infoLF "non interactive mode would work better with --email"
   else
-    info "will use email: $email"; echo ""
+    infoLF "will use email: $email";
   fi
 fi
 
@@ -109,8 +112,12 @@ setup_gitconfig () {
     fi
 
     echo "[user]" > ${gitnameCacheFile}
-    echo "  name = $git_authorname" >> ${gitnameCacheFile}
-    echo "  email = $git_authoremail" >> ${gitnameCacheFile}
+    if [ -n "$git_authorname" ]; then
+      echo "  name = $git_authorname" >> ${gitnameCacheFile}
+    fi
+    if [ -n "$git_authoremail" ]; then
+      echo "  email = $git_authoremail" >> ${gitnameCacheFile}
+    fi
   fi
 
   cat ${gitnameCacheFile} gitconfig > .gitconfig
