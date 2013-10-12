@@ -1,4 +1,10 @@
 alias g='git'
+
+#Needed if the shell tries to load completion files lazily
+completionFile=/usr/share/bash-completion/completions/git
+if [ -f $completionFile ]; then
+  source $completionFile
+fi
 complete -o bashdefault -o default -o nospace -F _git g 2>/dev/null \
 	|| complete -o default -o nospace -F _git g
 
