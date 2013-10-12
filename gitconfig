@@ -1,17 +1,17 @@
 [core]
-	editor = vim
+    editor = vim
 [alias]
-	a  = add
-	br = branch
-	brf = branch -f
-	c = commit
-	ca = commit -a
-	cam = commit -am
-	cm = commit -m
-	co = checkout
-	fe = fetch --all
-	re = remote -v
-	st = status
+    a  = add
+    br = branch
+    brf = branch -f
+    c = commit
+    ca = commit -a
+    cam = commit -am
+    cm = commit -m
+    co = checkout
+    fe = fetch --all
+    re = remote -v
+    st = status
     bra = branch -a
     chp = cherry-pick
     cl = clone
@@ -25,8 +25,8 @@
     ri2 = rebase -i HEAD^^
     tagf = tag -f
 [gui]
-	gcwarning = false
+    gcwarning = false
 [merge]
     tool = vimdiff
 [difftool]
-	prompt = false
+    prompt = false
