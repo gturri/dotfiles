@@ -17,6 +17,7 @@
     cl = clone
     cob = checkout -b
     cobf = checkout -B
+    diffc = diff -c
     me = merge
     men = merge --no-ff
     rh = reset --hard
