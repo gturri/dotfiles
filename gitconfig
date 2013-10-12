@@ -19,6 +19,7 @@
     cobf = checkout -B
     diffc = diff -c
     me = merge
+    meff = merge --ff-only
     men = merge --no-ff
     rh = reset --hard
     ri = rebase -i
