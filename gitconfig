@@ -14,7 +14,9 @@
     co = checkout
     cob = checkout -b
     cobf = checkout -B
-    diffc = diff -c
+    dif = diff
+    difc = diff --cached
+    difw = diff --word-diff
     fe = fetch --all
     lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)%Creset' --abbrev-commit
     me = merge
@@ -26,6 +28,10 @@
     ri2 = rebase -i HEAD^^
     st = status
     tagf = tag -f
+[color]
+    ui = auto
+[diff]
+    mnemonicprefix = true
 [gui]
     gcwarning = false
 [merge]
