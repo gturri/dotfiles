@@ -4,6 +4,7 @@
     a  = add
     br = branch
     bra = branch -a
+    brd = branch -D
     brf = branch -f
     c = commit
     ca = commit -a
