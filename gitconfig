@@ -2,6 +2,7 @@
     editor = vim
 [alias]
     a  = add
+    af = add -f
     br = branch
     bra = branch -a
     brd = branch -D

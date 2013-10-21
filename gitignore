@@ -5,3 +5,5 @@ build
 *.log
 *.dat
 node_modules
+*.pyc
+*.class
