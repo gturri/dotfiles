@@ -13,6 +13,7 @@
     cl = clone
     cm = commit -m
     co = checkout
+    co1 = checkout HEAD^
     cob = checkout -b
     cobf = checkout -B
     dif = diff
