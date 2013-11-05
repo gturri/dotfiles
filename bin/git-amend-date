@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+# Reset both the commit and the author date
+# See DATE FORMAT: https://www.kernel.org/pub/software/scm/git/docs/git-commit.html#_date_formats
+
+GIT_COMMITTER_DATE="$1" git commit --amend --date="$1"

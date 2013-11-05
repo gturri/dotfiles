@@ -30,6 +30,7 @@
     ri = rebase -i
     ri2 = rebase -i HEAD^^
     st = status
+    tagd = tag -d
     tagf = tag -f
 [color]
     ui = auto
