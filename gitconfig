@@ -22,6 +22,8 @@
     difw = diff --word-diff
     fe = fetch --all
     lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)%Creset' --abbrev-commit
+    log3 = log -3
+    log5 = log -5
     me = merge
     meff = merge --ff-only
     men = merge --no-ff
