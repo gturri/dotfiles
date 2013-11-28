@@ -33,3 +33,7 @@ autocmd! BufWritePost .vimrc source ~/.vimrc
 " Highlight redundant whitespaces and tabs.
 highlight RedundantSpaces ctermbg=red guibg=red
 match RedundantSpaces /\s\+$\| \+\ze\t\|\t/
+
+function RemoveTrailingSpaces()
+  %s/\s\+$//
+endfunction
