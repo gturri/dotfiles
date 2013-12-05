@@ -128,6 +128,10 @@ setup_vimrc(){
   cp -f vimrc .vimrc
 }
 
+setup_gitk(){
+  cp -f gitk .gitk
+}
+
 setup_bashrc(){
   cp -f bash_aliases .bash_aliases
   echo "PATH=\$PATH:$DOTFILES_ROOT/bin" >> .bash_aliases
@@ -149,7 +153,7 @@ install_dotfiles () {
     overwrite_all=true
   fi
 
-  for source in  .bash_aliases .vimrc .gitconfig; do
+  for source in  .bash_aliases .vimrc .gitconfig .gitk; do
     source=${DOTFILES_ROOT}/$source
     dest="$HOME/`basename $source`"
   
@@ -205,6 +209,7 @@ install_dotfiles () {
 setup_gitconfig
 setup_vimrc
 setup_bashrc
+setup_gitk
 install_dotfiles
 
 echo ''
