@@ -199,7 +199,7 @@ install_dotfiles () {
       else
         success "skipped $source"
       fi
-      
+
     else
       link_files $source $dest
     fi

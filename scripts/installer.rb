@@ -1,16 +1,15 @@
 class Installer
+
+  attr_accessor :overwrite_all, :backup_all, :skip_all
+  attr_reader :dotfiles_root
+
+
   def initialize
     @dotfiles_root = Dir.getwd
     @dotfiles = []
     @overwrite_all = false
     @backup_all = false
     @skip_all = false
-  end
-
-  def link_files target, linkname
-    FileUtils.ln_s target, linkname
-    Printer.success "linked #{target} to #{linkname}"
-
   end
 
   def setup_commonFiles
@@ -85,47 +84,41 @@ class Installer
   end
 
   def installFile dotfile
-      source = @dotfiles_root + "/" + dotfile
+    FileInstaller.new(self).installFile dotfile
+  end
+
+end
+
+class FileInstaller
+  def initialize installer
+    @installer = installer
+    @overwrite = false
+    @backup = false
+    @skip = false
+  end
+
+  def installFile dotfile
+      source = @installer.dotfiles_root + "/" + dotfile
       dest = Dir.home + "/" + dotfile
 
       if File.exists? dest
-        overwrite = false
-        backup = false
-        skip = false
-
-        if ( !@overwrite_all && !@backup_all && !@skip_all )
+        if ( !@installer.overwrite_all && !@installer.backup_all && !@installer.skip_all )
           Printer.user "File already exists: #{dotfile}, what do you want to do? [s]kip, [S]kip all, [o]verwrite, [O]verwrite all, [b]ackup, [B]ackup all?"
-          system("stty raw -echo")
-          action = STDIN.getc()
-          system("stty -raw echo")
-
-          case action
-            when "o"
-              overwrite = true
-            when "O"
-              @overwrite_all = true
-            when "b"
-              backup = true
-            when "B"
-              @backup_all = true
-            when "s"
-              skip = true
-            when "S"
-              @skip_all = true
-          end
+          action = readKey
+          applyAction action
         end
 
-        if ( overwrite || @overwrite_all )
+        if ( @overwrite || @installer.overwrite_all )
           FileUtils.rm dest
           Printer.success "removed " + dest
         end
 
-        if ( backup || @backup_all )
+        if ( @backup || @installer.backup_all )
           FileUtils.mv dest, dest + ".bak"
           Printer.success "moved " + dest + " to " + dest + ".bak"
         end
 
-        if ( !skip && !@skip_all)
+        if ( !@skip && !@installer.skip_all)
           link_files source, dest
         else
           Printer.success "skipped " + dotfile
@@ -134,5 +127,33 @@ class Installer
         link_files source, dest
       end
   end
-end
 
+  def link_files target, linkname
+    FileUtils.ln_s target, linkname
+    Printer.success "linked #{target} to #{linkname}"
+  end
+
+  def readKey
+    system("stty raw -echo")
+    action = STDIN.getc()
+    system("stty -raw echo")
+    return action
+  end
+
+  def applyAction action
+    case action
+      when "o"
+        @overwrite = true
+      when "O"
+        @installer.overwrite_all = true
+      when "b"
+        @backup = true
+      when "B"
+        @installer.backup_all = true
+      when "s"
+        @skip = true
+      when "S"
+        @installer.skip_all = true
+    end
+  end
+end
