@@ -150,10 +150,10 @@ class FileInstaller
         @backup = true
       when "B"
         @installer.backup_all = true
-      when "s"
-        @skip = true
       when "S"
         @installer.skip_all = true
+      else
+        @skip = true
     end
   end
 end
