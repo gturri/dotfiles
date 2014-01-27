@@ -14,6 +14,7 @@ alias gitc='git reset --hard & git clean -fxd'
 alias gitka='gitk --all HEAD &'
 
 alias c='cd'
+alias c-='cd -'
 alias chmux='chmod u+x'
 alias dush='du -s * | sort -n | cut -f 2 | xargs du -sh'
 alias exi='exit'
