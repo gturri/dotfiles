@@ -37,3 +37,5 @@ match RedundantSpaces /\s\+$\| \+\ze\t\|\t/
 function RemoveTrailingSpaces()
   %s/\s\+$//
 endfunction
+
+autocmd FileType xml set equalprg=xmllint\ --format\ -
