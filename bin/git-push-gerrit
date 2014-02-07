@@ -1,2 +1,2 @@
 #!/usr/bin/env bash
-git push origin HEAD:refs/publish/master
+git push gerrit HEAD:refs/publish/master
