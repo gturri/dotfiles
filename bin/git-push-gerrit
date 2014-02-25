@@ -1,2 +1,7 @@
 #!/usr/bin/env bash
-git push gerrit HEAD:refs/publish/master
+
+if [ $# != 0 ]; then
+ postfix="%topic=$1" 
+fi
+
+git push gerrit HEAD:refs/publish/master$postfix
