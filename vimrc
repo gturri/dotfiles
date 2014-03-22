@@ -24,6 +24,8 @@ set showcmd
 set scrolloff=1
 set sidescrolloff=5
 
+set cursorline
+
 "Let quit insert mode with "kj"
 inoremap kj <Esc> 
 
