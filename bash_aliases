@@ -13,6 +13,7 @@ alias gikt='gitk'
 alias gitc='git reset --hard & git clean -fxd'
 alias gitka='gitk --all HEAD &'
 
+alias apacherestart='sudo /etc/init.d/apache2 restart'
 alias c='cd'
 alias c-='cd -'
 alias chmux='chmod u+x'
