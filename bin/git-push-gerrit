@@ -1,7 +1,12 @@
 #!/usr/bin/env bash
 
-if [ $# != 0 ]; then
- postfix="%topic=$1" 
+branch=master
+if [ $# -gt 0 ]; then
+  branch=$1
 fi
 
-git push gerrit HEAD:refs/publish/master$postfix
+if [ $# -gt 1 ]; then
+ postfix="%topic=$2"
+fi
+
+git push gerrit HEAD:refs/publish/$branch$postfix
