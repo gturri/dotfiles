@@ -134,7 +134,8 @@ setup_gitk(){
 
 setup_bashrc(){
   cp -f bash_aliases .bash_aliases
-  echo "PATH=\$PATH:$DOTFILES_ROOT/bin" >> .bash_aliases
+  echo export DOTFILES_ROOT=$DOTFILES_ROOT >> .bash_aliases
+  echo "PATH=\$PATH:\$DOTFILES_ROOT/bin" >> .bash_aliases
 }
 
 link_files () {

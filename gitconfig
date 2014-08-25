@@ -13,7 +13,6 @@
     ca = commit -a
     cam = commit -am
     chp = cherry-pick
-    cl = clone
     cm = commit -m
     co = checkout
     co1 = checkout HEAD^
