@@ -12,6 +12,7 @@
     c = commit
     ca = commit -a
     cam = commit -am
+    chmux = update-index --chmod=+x
     chp = cherry-pick
     cm = commit -m
     co = checkout
