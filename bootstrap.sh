@@ -124,9 +124,19 @@ setup_gitconfig () {
   success 'gitconfig'
 }
 
+setup_vim_for_scala(){
+  if [ -e ~/.vim/ftdetect/scala.vim ]; then
+    infoLF 'Already have vim config files for scala. Skipping.'
+  else
+    infoLF 'Installing vim config files for scala'
+    mkdir -p ~/.vim/{ftdetect,indent,syntax} && for d in ftdetect indent syntax ; do curl -o ~/.vim/$d/scala.vim https://raw.githubusercontent.com/scala/scala-dist/master/tool-support/src/vim//scala.vim; done
+  fi
+}
+
 setup_vimrc(){
   cp -f vimrc .vimrc
   cp -f vimrc .vrapperrc
+  setup_vim_for_scala
 }
 
 setup_gitk(){
