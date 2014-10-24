@@ -43,7 +43,6 @@ alias vp='vim -p'
 alias xs='cd ..'
 
 PS1='[\[\033[01;32m\]\u@\h\[\033[01;34m\]:\w\[\033[00;35m\]$(__git_ps1 " (%s)")\[\033[00m\]]\$ '
-export JAVA_HOME=$(readlink -f /usr/bin/java | sed "s:bin/java::")
 
 GRAY="\[\033[1;30m\]"
 LIGHT_GRAY="\[\033[0;37m\]"
