@@ -31,6 +31,7 @@
     meff = merge --ff-only
     men = merge --no-ff
     re = remote -v
+    rank-commit = shortlog -sn --no-merges
     rh = reset --hard
     ri = rebase -i
     ri2 = rebase -i HEAD^^
