@@ -34,15 +34,13 @@ alias ls1='ls -1'
 alias lsR='ls -R'
 alias mkdirp='mkdir -p'
 alias mvns='mvnskip'
-alias mvnskip='mvn -Dmaven.test.skip=true'
+alias mvnskip='mvn -Dmaven.test.skip=true -Dmaven.javadoc.skip'
 alias ownc='rm -f ~/owncloud.log && owncloud --logfile ~/owncloud.log --logflush'
 alias resource='source ~/.bashrc'
 alias v='vim'
 alias vO='vim -O'
 alias vp='vim -p'
 alias xs='cd ..'
-
-PS1='[\[\033[01;32m\]\u@\h\[\033[01;34m\]:\w\[\033[00;35m\]$(__git_ps1 " (%s)")\[\033[00m\]]\$ '
 
 GRAY="\[\033[1;30m\]"
 LIGHT_GRAY="\[\033[0;37m\]"
