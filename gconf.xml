@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<gconf>
+	<entry name="move_tab_right" mtime="1421053066" type="string">
+		<stringvalue>&lt;Primary&gt;&lt;Shift&gt;Right</stringvalue>
+	</entry>
+	<entry name="move_tab_left" mtime="1421053063" type="string">
+		<stringvalue>&lt;Primary&gt;&lt;Shift&gt;Left</stringvalue>
+	</entry>
+	<entry name="next_tab" mtime="1421053059" type="string">
+		<stringvalue>&lt;Primary&gt;Right</stringvalue>
+	</entry>
+	<entry name="prev_tab" mtime="1421053057" type="string">
+		<stringvalue>&lt;Primary&gt;Left</stringvalue>
+	</entry>
+	<entry name="new_tab" mtime="1421053007" type="string">
+		<stringvalue>&lt;Primary&gt;&lt;Alt&gt;n</stringvalue>
+	</entry>
+</gconf>
