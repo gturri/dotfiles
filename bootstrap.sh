@@ -127,6 +127,7 @@ setup_gitconfig () {
 setup_vimrc(){
   cp -f vimrc .vimrc
   cp -f vimrc .vrapperrc
+  cp -f ideavimrc .ideavimrc
 }
 
 setup_gitk(){
@@ -155,7 +156,7 @@ install_dotfiles () {
     overwrite_all=true
   fi
 
-  for source in  .bash_aliases .vimrc .vrapperrc .gitconfig .gitk; do
+  for source in  .bash_aliases .vimrc .vrapperrc .gitconfig .gitk .ideavimrc; do
     source=${DOTFILES_ROOT}/$source
     dest="$HOME/`basename $source`"
   
