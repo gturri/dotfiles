@@ -10,4 +10,4 @@ if [ $# -gt 1 ]; then
 fi
 
 git push gerrit HEAD:refs/publish/$branch$postfix
-ssh -p 29418 review.criteois.lan gerrit review --ready-to-submit 1 `git rev-parse HEAD`
+#ssh -p 29418 review.criteois.lan gerrit review --ready-to-submit 1 `git rev-parse HEAD`
