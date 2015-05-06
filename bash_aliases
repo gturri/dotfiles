@@ -41,6 +41,7 @@ alias mvnskip='mvn -Dmaven.test.skip=true -Dmaven.javadoc.skip'
 alias ownc='rm -f ~/owncloud.log && owncloud --logfile ~/owncloud.log --logflush'
 alias resource='source ~/.bashrc'
 alias v='vim'
+alias va=vagrant
 alias vO='vim -O'
 alias vp='vim -p'
 alias xs='cd ..'
