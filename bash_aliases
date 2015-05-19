@@ -1,4 +1,3 @@
-alias g='git'
 
 #Needed if the shell tries to load completion files lazily
 completionFile=/usr/share/bash-completion/completions/git
@@ -9,7 +8,6 @@ complete -o bashdefault -o default -o nospace -F _git g 2>/dev/null \
 	|| complete -o default -o nospace -F _git g
 
 
-alias gikt='gitk'
 alias gitc='git reset --hard & git clean -fxd'
 alias gitka='gitk --all HEAD &'
 
@@ -21,6 +19,7 @@ alias dush='du -sh * | sort -h'
 alias exi='exit'
 alias findnew='find . -mmin -1'
 alias findf='find . -type f'
+alias g='git'
 alias gr='grep -rn --color'
 alias grepi='grep -i'
 alias grepv='grep -v'
