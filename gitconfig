@@ -37,6 +37,7 @@
     rh = reset --hard
     ri = rebase -i
     ri2 = rebase -i HEAD^^
+    sh = show
     st = status
     tagd = tag -d
     tagf = tag -f
