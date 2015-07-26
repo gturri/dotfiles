@@ -149,8 +149,8 @@ setup_bashrc(){
   cp -f bash_aliases .bash_aliases
   get_name
   get_email
-  echo export DEBEMAIL=\"$name\" >> .bash_aliases
-  echo export DEBFULLNAME=\"$email\" >> .bash_aliases
+  echo export DEBEMAIL=\"$email\" >> .bash_aliases
+  echo export DEBFULLNAME=\"$name\" >> .bash_aliases
   echo export DOTFILES_ROOT=$DOTFILES_ROOT >> .bash_aliases
   echo "PATH=\$PATH:\$DOTFILES_ROOT/bin" >> .bash_aliases
 }
