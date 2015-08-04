@@ -25,7 +25,7 @@
 #THE SOFTWARE.
 
 DOTFILES_ROOT="`pwd`"
-NAME_CACHE_FILE=name.cache.txt
+NAME_CACHE_FILE=.name.cache.txt
 
 info () {
   printf " [ \033[00;34m..\033[0m ] $1"
