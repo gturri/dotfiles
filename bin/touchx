@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+#
+# Create a file with x permissions
+
+touch $1
+chmod u+x $1
