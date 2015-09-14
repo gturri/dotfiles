@@ -25,6 +25,7 @@
 #THE SOFTWARE.
 
 DOTFILES_ROOT="`pwd`"
+NAME_CACHE_FILE=.name.cache.txt
 
 info () {
   printf " [ \033[00;34m..\033[0m ] $1"
@@ -96,31 +97,41 @@ set -e
 
 echo ''
 
-setup_gitconfig () {
-  gitnameCacheFile=.gitconfig.name
-  if ! [ -f ${gitnameCacheFile} ]; then
-    info 'setup gitconfig'
-
-    if [ -n "$nonInteractive" ]; then
-       git_authorname=$name
-       git_authoremail=$email
-    else
-      user ' - What is your github author name?'
-      read -e git_authorname
-      user ' - What is your github author email?'
-      read -e git_authoremail
-    fi
-
-    echo "[user]" > ${gitnameCacheFile}
-    if [ -n "$git_authorname" ]; then
-      echo "  name = $git_authorname" >> ${gitnameCacheFile}
-    fi
-    if [ -n "$git_authoremail" ]; then
-      echo "  email = $git_authoremail" >> ${gitnameCacheFile}
-    fi
+setup_ids () {
+  if [ -z "$nonInteractive" ]; then
+    user ' - What is your name?'
+    read -e name
+    user ' - What is your email?'
+    read -e email
   fi
 
-  cat ${gitnameCacheFile} gitconfig > .gitconfig
+  echo "name: $name" > $NAME_CACHE_FILE
+  echo "email: $email" >> $NAME_CACHE_FILE
+}
+
+get_name () {
+  if ! [ -f $NAME_CACHE_FILE ]; then
+    setup_ids
+  fi
+  name=$(grep name: $NAME_CACHE_FILE | sed 's/name: //')
+}
+
+get_email () {
+  if ! [ -f $NAME_CACHE_FILE ]; then
+    setup_ids
+  fi
+  email=$(grep email: $NAME_CACHE_FILE | sed 's/email: //')
+}
+
+setup_gitconfig () {
+  info 'setup gitconfig'
+  get_name
+  get_email
+
+  cp gitconfig .gitconfig
+  echo "[user]" >> .gitconfig
+  echo " name = $name" >> .gitconfig
+  echo " email = $email" >> .gitconfig
   success 'gitconfig'
 }
 
@@ -136,6 +147,10 @@ setup_gitk(){
 
 setup_bashrc(){
   cp -f bash_aliases .bash_aliases
+  get_name
+  get_email
+  echo export DEBEMAIL=\"$email\" >> .bash_aliases
+  echo export DEBFULLNAME=\"$name\" >> .bash_aliases
   echo export DOTFILES_ROOT=$DOTFILES_ROOT >> .bash_aliases
   echo "PATH=\$PATH:\$DOTFILES_ROOT/bin" >> .bash_aliases
 }
@@ -208,6 +223,7 @@ install_dotfiles () {
     fi
   done
 }
+
 
 setup_gitconfig
 setup_vimrc
