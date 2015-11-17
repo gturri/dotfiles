@@ -44,6 +44,7 @@ alias v='vim'
 alias va=vagrant
 alias vO='vim -O'
 alias vp='vim -p'
+alias wcl='wc -l'
 alias xs='cd ..'
 
 GRAY="\[\033[1;30m\]"
