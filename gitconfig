@@ -41,6 +41,7 @@
     st = status
     tagd = tag -d
     tagf = tag -f
+    tagt = tag -f temp
 [color]
     ui = auto
 [diff]
