@@ -53,5 +53,14 @@ PS1=$PS1'$(__git_ps1 " (%s)")'
 fi
 PS1=$PS1'\[\033[00m\]]\$ '
 
-export JAVA_HOME=$(readlink -f /usr/bin/java | sed "s:bin/java::")
+export JAVA_HOME=$(readlink -f /usr/bin/java | sed "s:jre/bin/java::")
+shopt -s autocd   2>/dev/null # Only in bash 4
+# http://nion.modprobe.de/blog/archives/572-less-colors-for-man-pages.html
+export LESS_TERMCAP_mb=$'\E[01;31m'    # debut de blink
+export LESS_TERMCAP_md=$'\E[01;31m'    # debut de gras
+export LESS_TERMCAP_me=$'\E[0m'        # fin
+export LESS_TERMCAP_so=$'\E[01;44;33m' # début de la ligne d'état
+export LESS_TERMCAP_se=$'\E[0m'        # fin
+export LESS_TERMCAP_us=$'\E[01;32m'    # début de souligné
+export LESS_TERMCAP_ue=$'\E[0m'        # fin
 
