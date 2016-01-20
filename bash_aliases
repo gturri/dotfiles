@@ -54,7 +54,6 @@ fi
 PS1=$PS1'\[\033[00m\]]\$ '
 
 export JAVA_HOME=$(readlink -f /usr/bin/java | sed "s:jre/bin/java::")
-shopt -s autocd   2>/dev/null # Only in bash 4
 # http://nion.modprobe.de/blog/archives/572-less-colors-for-man-pages.html
 export LESS_TERMCAP_mb=$'\E[01;31m'    # debut de blink
 export LESS_TERMCAP_md=$'\E[01;31m'    # debut de gras
