@@ -30,7 +30,7 @@
     log3 = log -3
     log5 = log -5
     ls = ls-files
-    me = merge
+    me = merge --allow-unrelated-histories
     meff = merge --ff-only
     men = merge --no-ff
     re = remote -v
