@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+
+# Handy to detect files not changed for a very long time
+git ls-tree -r --name-only HEAD | while read filename; do   echo "$(git log -1 --format="%ai" -- $filename) $filename"; done | sort -k 1 -k 2 -
