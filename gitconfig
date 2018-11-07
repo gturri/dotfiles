@@ -5,6 +5,7 @@
     af = add -f
     amend = !git log -n 1 --pretty=tformat:%s%n%n%b | git commit -F - --amend
     aamend = !git log -n 1 --pretty=tformat:%s%n%n%b | git commit -a -F - --amend
+    ap = add -p
     bl = blame
     br = branch
     bra = branch -a
