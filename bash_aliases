@@ -65,3 +65,6 @@ export LESS_TERMCAP_ue=$'\E[0m'        # fin
 
 # Learn a command on each new shell open
 man $(ls /usr/bin | shuf -n 1)| sed -n "/^NAME/ { n;p;q }"
+
+# catch a common scp mistake
+scp(){ if [[ "$@" =~ : ]];then /usr/bin/scp $@ ; else echo 'You forgot the colon dumbass!'; fi;}
