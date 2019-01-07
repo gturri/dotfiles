@@ -53,3 +53,6 @@ CYAN="\[\033[0;36m\]"
 LIGHT_CYAN="\[\033[1;36m\]"
 NO_COLOUR="\[\033[0m\]"
 PS1='[\[\033[01;32m\]\u@\h\[\033[0;33m\]($(date +%H:%M:%S))\w$(__git_ps1 " (%s)")\[\033[00m\]]\$ '
+
+# catch a common scp mistake
+scp(){ if [[ "$@" =~ : ]];then /usr/bin/scp $@ ; else echo 'You forgot the colon dumbass!'; fi;}
