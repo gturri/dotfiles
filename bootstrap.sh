@@ -135,10 +135,16 @@ setup_gitconfig () {
   success 'gitconfig'
 }
 
-setup_vimrc(){
+setup_vim(){
   cp -f vimrc .vimrc
   cp -f vimrc .vrapperrc
   cp -f ideavimrc .ideavimrc
+
+  mkdir -p ~/.vim/plugin
+  mkdir -p ~/.vim/autoload
+
+  cp vim/plugin/* ~/.vim/plugin
+  cp vim/autoload/* ~/.vim/autoload
 }
 
 setup_gitk(){
@@ -226,7 +232,7 @@ install_dotfiles () {
 
 
 setup_gitconfig
-setup_vimrc
+setup_vim
 setup_bashrc
 setup_gitk
 install_dotfiles
