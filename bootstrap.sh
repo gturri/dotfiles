@@ -140,11 +140,11 @@ setup_vim(){
   cp -f vimrc .vrapperrc
   cp -f ideavimrc .ideavimrc
 
-  mkdir -p ~/.vim/plugin
-  mkdir -p ~/.vim/autoload
+  for DIR in autoload compiler ftdetect ftplugin indent plugin syntax; do
+    mkdir -p ~/.vim/$DIR
+    cp vim/$DIR/* ~/.vim/$DIR
+  done
 
-  cp vim/plugin/* ~/.vim/plugin
-  cp vim/autoload/* ~/.vim/autoload
 }
 
 setup_gitk(){
