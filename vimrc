@@ -32,6 +32,10 @@ inoremap kj <Esc>
 "when a file called .vimrc is written, we load ~/.vimrc
 autocmd! BufWritePost .vimrc source ~/.vimrc
 
+"yaml support
+autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab foldmethod=indent
+au BufNewFile,BufRead *.yaml,*.yml so ~/.vim/syntax/yaml.vim
+
 " Highlight redundant whitespaces and tabs.
 highlight RedundantSpaces ctermbg=red guibg=red
 match RedundantSpaces /\s\+$\| \+\ze\t\|\t/
