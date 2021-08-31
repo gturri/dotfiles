@@ -8,6 +8,11 @@ set autoindent
 set hlsearch
 set smartcase
 
+" Those two lines need to be run in this order, otherwise "relativenumber"
+" would override the other option
+set relativenumber
+set number
+
 set incsearch
 set ignorecase
 set cindent shiftwidth=2
