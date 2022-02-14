@@ -6,5 +6,5 @@ if [ ! -d .git ]; then
 fi
 
 cp $DOTFILES_ROOT/hooks/* .git/hooks
-gitdir=$(git rev-parse --git-dir); scp -p -P 29418 $(whoami)@review.crto.in:hooks/commit-msg ${gitdir}/hooks/
+gitdir=$(git rev-parse --git-dir); scp -p -P 29418 g.turri@review.crto.in:hooks/commit-msg ${gitdir}/hooks/
 
