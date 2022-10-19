@@ -46,3 +46,10 @@ endfunction
 
 " pulgin "rainbow": https://github.com/luochen1990/rainbow
 let g:rainbow_active = 1 "0 if you want to enable it later via :RainbowToggle
+
+" ensure arrow-keys are properly interpreted
+" (this implements the fix from https://vi.stackexchange.com/a/14446/43994 )
+set <up>=OA
+set <down>=OB
+set <left>=OD
+set <right>=OC
