@@ -1,4 +1,11 @@
+What
+====
 Some executables that are sometime useful to me.
 
 This repo will probably end up containing several pieces of code which reinvent the wheel.
 
+Building and installing
+=======================
+
+    ./gradlew jar
+    export PATH=$PATH:$(pwd)/build/libs # or copy the content of this file wherever you want and add it to your PATH
