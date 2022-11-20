@@ -1,0 +1,9 @@
+#!/bin/bash
+if [ -L "$0" ] && [ -x $(which readlink) ]; then
+  THIS_FILE="$(readlink -mn "$0")"
+else
+  THIS_FILE="$0"
+fi
+
+CP_BASE="$(dirname "$THIS_FILE")"
+java -cp "$CP_BASE/*" fr.turri.Base64Decoder $@
