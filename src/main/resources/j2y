@@ -6,4 +6,4 @@ else
 fi
 
 CP_BASE="$(dirname "$THIS_FILE")"
-java -cp "$CP_BASE/*" fr.turri.JsonToYaml $@
+java -cp "$CP_BASE/my-toolbox-1.0-SNAPSHOT.jar" fr.turri.JsonToYaml $@
