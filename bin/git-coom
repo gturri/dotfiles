@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+
+if git rev-parse --verify origin/master 2>/dev/null >/dev/null; then
+  git checkout origin/master
+  exit 0
+fi
+
+if git rev-parse --verify origin/main 2>/dev/null >/dev/null; then
+  git checkout origin/main
+  exit 0
+fi
+
+echo "couldn't find the remote branch to checkout"
+exit 1
