@@ -22,7 +22,6 @@
     co1 = checkout HEAD^
     cob = checkout -b
     cobf = checkout -B
-    coom = checkout origin/master
     dif = diff
     difc = diff --cached
     difw = diff --word-diff
