@@ -1,0 +1,57 @@
+[core]
+    editor = vim
+[alias]
+    a  = add
+    af = add -f
+    amend = !git log -n 1 --pretty=tformat:%s%n%n%b | git commit -F - --amend
+    aamend = !git log -n 1 --pretty=tformat:%s%n%n%b | git commit -a -F - --amend
+    ap = add -p
+    bl = blame
+    br = branch
+    bra = branch -a
+    brd = branch -D
+    brf = branch -f
+    c = commit
+    ca = commit -a
+    cam = commit -am
+    chmux = update-index --chmod=+x
+    chp = cherry-pick
+    chpt = cherry-pick temp
+    cl = clone
+    cm = commit -m
+    co = checkout
+    co1 = checkout HEAD^
+    cob = checkout -b
+    cobf = checkout -B
+    dif = diff
+    difc = diff --cached
+    difw = diff --word-diff
+    fe = fetch --all
+    gr = grep -n
+    lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)%Creset' --abbrev-commit
+    log3 = log -3
+    log5 = log -5
+    ls = ls-files
+    me = merge --allow-unrelated-histories
+    meff = merge --ff-only
+    men = merge --no-ff
+    re = remote -v
+    rank-commit = shortlog -sn --no-merges
+    rh = reset --hard
+    ri = rebase -i
+    ri2 = rebase -i HEAD^^
+    sh = show
+    st = status
+    tagd = tag -d
+    tagf = tag -f
+    tagt = tag -f temp
+[color]
+    ui = auto
+[diff]
+    mnemonicprefix = true
+[gui]
+    gcwarning = false
+[merge]
+    tool = vimdiff
+[difftool]
+    prompt = false

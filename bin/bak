@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+#
+# Copies a file or a directory, suffixing by .bak, to create a backup
+
+cp -r "$1"{,.bak}

@@ -1,0 +1,10 @@
+bin
+*.jar
+.*.*wp
+build
+*.log
+*.dat
+node_modules
+*.pyc
+*.class
+.be/id-cache

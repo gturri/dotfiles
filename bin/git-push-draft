@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+
+branch=master
+if [ $# -gt 0 ]; then
+  branch=$1
+fi
+
+git push origin HEAD:refs/drafts/$branch

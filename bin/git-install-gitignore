@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+#Copy the default gitignore in the working directory
+
+cp "$(dirname "$0")"/../gitignore .gitignore

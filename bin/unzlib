@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+#May be used to read git objects
+cat $1 | openssl zlib -d
