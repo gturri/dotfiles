@@ -1,2 +1,8 @@
 #!/usr/bin/env bash
-git push gerrit HEAD:refs/drafts/master
+
+branch=master
+if [ $# -gt 0 ]; then
+  branch=$1
+fi
+
+git push origin HEAD:refs/drafts/$branch
