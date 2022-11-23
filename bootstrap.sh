@@ -24,6 +24,8 @@
 #OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 #THE SOFTWARE.
 
+set -e
+
 DOTFILES_ROOT="`pwd`"
 NAME_CACHE_FILE=.name.cache.txt
 
@@ -161,6 +163,15 @@ setup_bashrc(){
   echo "PATH=\$PATH:\$DOTFILES_ROOT/bin" >> .bash_aliases
 }
 
+build_and_install_javatoolbox(){
+  pushd java-toolbox
+  ./gradlew jar
+  popd
+
+  echo "PATH=\$PATH:\$DOTFILES_ROOT/java-toolbox/build/resources/main" >> .bash_aliases
+
+}
+
 link_files () {
   ln -s $1 $2
   success "linked $1 to $2"
@@ -235,6 +246,7 @@ setup_gitconfig
 setup_vim
 setup_bashrc
 setup_gitk
+build_and_install_javatoolbox
 install_dotfiles
 
 echo ''

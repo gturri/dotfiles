@@ -5,5 +5,5 @@ else
   THIS_FILE="$0"
 fi
 
-CP_BASE="$(dirname "$THIS_FILE")"
+CP_BASE="$(dirname "$THIS_FILE")/../../libs"
 java -cp "$CP_BASE/my-toolbox-1.0-SNAPSHOT.jar" fr.turri.DateToEpoch $@

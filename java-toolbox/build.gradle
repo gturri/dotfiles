@@ -26,14 +26,6 @@ jar {
     }
 }
 
-sourceSets {
-  main {
-    // To have the resources at the same place as the jars
-    // (because it makes it more convenient to install afterward)
-    output.resourcesDir = "build/libs/"
-  }
-}
-
 test {
     useJUnitPlatform()
 }
