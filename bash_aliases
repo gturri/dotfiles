@@ -65,7 +65,7 @@ export LESS_TERMCAP_us=$'\E[01;32m'    # début de souligné
 export LESS_TERMCAP_ue=$'\E[0m'        # fin
 
 # Learn a command on each new shell open
-if which man 2>/dev/null; then
+if which man 2>/dev/null >/dev/null; then
   man $(ls /usr/bin | shuf -n 1)| sed -n "/^NAME/ { n;p;q }"
 fi
 
