@@ -17,6 +17,7 @@
     chmux = update-index --chmod=+x
     chp = cherry-pick
     chpt = cherry-pick temp
+    cl = clone
     cm = commit -m
     co = checkout
     co1 = checkout HEAD^
