@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+#
+# Decode a url-encoded string (read from stdin)
+#
+# > echo https%3A%2F%2Fgoogle.com%2Fsearch%3Fq%3Durldecode%2Bbash | urldecode
+# > https://google.com/search?q=urldecode+bash
+
+# code from https://stackoverflow.com/a/37840948/1796345
+function fn_urldecode() { : "${*//+/ }"; echo -e "${_//%/\\x}"; }
+
+if [[ x$1 != x ]]; then
+  fn_urldecode $@
+else
+  xargs urldecode
+fi
