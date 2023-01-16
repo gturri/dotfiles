@@ -40,6 +40,8 @@ alias mvnew='mvn archetype:generate'
 alias mvns='mvnskip'
 alias mvnskip='mvn -Dmaven.test.skip=true -Dmaven.javadoc.skip'
 alias ownc='rm -f ~/owncloud.log && owncloud --logfile ~/owncloud.log --logflush'
+alias pg='git push-draft'
+alias pg='git push-gerrit'
 alias resource='source ~/.bashrc'
 alias v='vim'
 alias va=vagrant
