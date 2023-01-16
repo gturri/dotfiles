@@ -5,4 +5,4 @@ if [ $# -gt 0 ]; then
   branch=$1
 fi
 
-git push origin HEAD:refs/drafts/$branch
+git push origin HEAD:refs/for/$branch%wip
