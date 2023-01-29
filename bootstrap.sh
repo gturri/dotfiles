@@ -149,6 +149,17 @@ setup_vim(){
 
 }
 
+setup_git_autocomplete(){
+  GIT_COMPLETION_FILE="$DOTFILES_ROOT/.git-completion.bash"
+  curl https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.bash > "$GIT_COMPLETION_FILE"
+  echo "source \"$GIT_COMPLETION_FILE\"" >> .bash_aliases
+
+  GIT_PROMPT_FILE="$DOTFILES_ROOT/.git-prompt.sh"
+  curl https://raw.githubusercontent.com/git/git/master/contrib/completion/git-prompt.sh > "$GIT_PROMPT_FILE"
+  echo "source \"$GIT_PROMPT_FILE\"" >> .bash_aliases
+
+}
+
 setup_gitk(){
   cp -f gitk .gitk
 }
@@ -245,6 +256,7 @@ install_dotfiles () {
 setup_gitconfig
 setup_vim
 setup_bashrc
+setup_git_autocomplete
 setup_gitk
 build_and_install_javatoolbox
 install_dotfiles
