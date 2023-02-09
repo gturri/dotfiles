@@ -55,12 +55,10 @@ fail () {
 print_help(){
   info "Install dotfiles. Optional arguments:"; echo ""
   info "  -h: print this help"; echo ""
-  info "  --non-interactive: run in a non interactive mode."; echo ""
   info "  --name=your_name: your name"; echo ""
   info "  --email=your_email: your email"; echo ""
 }
 
-nonInteractive=""
 name=""
 email=""
 
@@ -69,9 +67,6 @@ for i in "$@"; do
     -h|--help)
       print_help
       exit 0
-    ;;
-    --non-interactive)
-      nonInteractive=y
     ;;
     --name=*)
       name=$(echo $i | sed 's/--name=//')
@@ -82,30 +77,15 @@ for i in "$@"; do
   esac
 done
 
-if [ -n "$nonInteractive" ]; then
-  if [ -z "$name" ]; then
-    infoLF "non interactive mode would work better with --name"
-  else
-    infoLF "will use name: $name";
-  fi
-  if [ -z "$email" ]; then
-    infoLF "non interactive mode would work better with --email"
-  else
-    infoLF "will use email: $email";
-  fi
-fi
-
 set -e
 
 echo ''
 
 setup_ids () {
-  if [ -z "$nonInteractive" ]; then
-    user ' - What is your name?'
-    read -e name
-    user ' - What is your email?'
-    read -e email
-  fi
+  user ' - What is your name?'
+  read -e name
+  user ' - What is your email?'
+  read -e email
 
   echo "name: $name" > $NAME_CACHE_FILE
   echo "email: $email" >> $NAME_CACHE_FILE
@@ -194,10 +174,6 @@ install_dotfiles () {
   overwrite_all=false
   backup_all=false
   skip_all=false
-
-  if [ -n "$nonInteractive" ]; then
-    overwrite_all=true
-  fi
 
   for source in  .bash_aliases .vimrc .vrapperrc .gitconfig .gitk .ideavimrc; do
     source=${DOTFILES_ROOT}/$source
