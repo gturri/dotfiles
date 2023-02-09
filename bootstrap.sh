@@ -155,11 +155,16 @@ setup_bashrc(){
 }
 
 build_and_install_javatoolbox(){
-  pushd java-toolbox
-  ./gradlew jar
-  popd
+  user "Build the java-toolbox? (yN)"
+  read -n 1 build
+  echo ""
+  if [ "x$build" = xy ]; then
+    pushd java-toolbox
+    ./gradlew jar
+    popd
 
-  echo "PATH=\$PATH:\$DOTFILES_ROOT/java-toolbox/build/resources/main" >> .bash_aliases
+    echo "PATH=\$PATH:\$DOTFILES_ROOT/java-toolbox/build/resources/main" >> .bash_aliases
+  fi
 
 }
 
