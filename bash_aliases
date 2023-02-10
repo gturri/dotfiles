@@ -67,3 +67,7 @@ export LESS_TERMCAP_ue=$'\E[0m'        # fin
 
 # catch a common scp mistake
 scp(){ if [[ "$@" =~ : ]];then /usr/bin/scp $@ ; else echo 'You forgot the colon dumbass!'; fi;}
+
+gwco () {
+  gw checkout --projects="$1"
+}
