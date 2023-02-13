@@ -162,10 +162,9 @@ build_and_install_javatoolbox(){
     pushd java-toolbox
     ./gradlew jar
     popd
-
-    echo "PATH=\$PATH:\$DOTFILES_ROOT/java-toolbox/build/resources/main" >> .bash_aliases
   fi
 
+  echo "PATH=\$PATH:\$DOTFILES_ROOT/java-toolbox/build/resources/main" >> .bash_aliases
 }
 
 link_files () {
