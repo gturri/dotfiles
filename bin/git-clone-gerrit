@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+
+REPO=$1
+DIR=$(basename $REPO)
+git clone "ssh://$USERNAME@review.crto.in:29418/$REPO" && scp -O -p -P 29418 $USERNAME@review.crto.in:hooks/commit-msg "$DIR/.git/hooks/"

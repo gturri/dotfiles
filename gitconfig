@@ -18,6 +18,7 @@
     chp = cherry-pick
     chpt = cherry-pick temp
     cl = clone
+    clg = clone-gerrit
     cm = commit -m
     co = checkout
     co1 = checkout HEAD^
