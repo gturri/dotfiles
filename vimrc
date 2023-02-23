@@ -3,7 +3,7 @@ set t_Co=256"
 set ts=4
 set sw=4
 set sts=4
-set noexpandtab
+set expandtab
 set autoindent
 set hlsearch
 set smartcase
