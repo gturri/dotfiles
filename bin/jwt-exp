@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+
+cut -d. -f2 | tr -d '\n' | b64d | jq '.exp' | e2d
+
