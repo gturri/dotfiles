@@ -12,6 +12,7 @@ set incsearch
 set ignorecase
 set cindent shiftwidth=2
 set wildmode=list:longest
+set encoding=utf8
 set fileencoding=utf8
 " always show ^M in DOS files
 set fileformats=unix
