@@ -59,3 +59,5 @@
     prompt = false
 [init]
     defaultBranch = main
+[help]
+    autocorrect = prompt
