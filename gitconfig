@@ -63,3 +63,9 @@
     autocorrect = prompt
 [branch]
     sort = -committerdate
+[commit]
+	gpgsign = true
+[gpg]
+	format = openpgp
+[gpg "ssh"]
+	allowedSignersFile = $HOME/.git_allowed_signers

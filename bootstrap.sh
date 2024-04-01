@@ -55,12 +55,13 @@ fail () {
 print_help(){
   info "Install dotfiles. Optional arguments:"; echo ""
   info "  -h: print this help"; echo ""
-  info "  --name=your_name: your name"; echo ""
-  info "  --email=your_email: your email"; echo ""
+  info "  --name=your_name"; echo ""
+  info "  --email=your_email"; echo ""
 }
 
 name=""
 email=""
+signingKey=""
 
 for i in "$@"; do
   case $i in
@@ -86,9 +87,12 @@ setup_ids () {
   read -e name
   user ' - What is your email?'
   read -e email
+  user ' - What is your gpg key fingerprint? (run `gpg --list-keys` if you re not sure)?'
+  read -e signingKey
 
   echo "name: $name" > $NAME_CACHE_FILE
   echo "email: $email" >> $NAME_CACHE_FILE
+  echo "signingKey: $signingKey" >> $NAME_CACHE_FILE
 }
 
 get_name () {
@@ -105,16 +109,28 @@ get_email () {
   email=$(grep email: $NAME_CACHE_FILE | sed 's/email: //')
 }
 
+get_signingKey () {
+  if ! [ -f $NAME_CACHE_FILE ]; then
+    setup_ids
+  fi
+  signingKey=$(grep signingKey: $NAME_CACHE_FILE | sed 's/signingKey: //')
+
+}
+
 setup_gitconfig () {
   info 'setup gitconfig'
   get_name
   get_email
+  get_signingKey
 
   cp gitconfig .gitconfig
   echo "[user]" >> .gitconfig
   echo " name = $name" >> .gitconfig
   echo " email = $email" >> .gitconfig
+  echo " signingKey = $signingKey" >> .gitconfig
   success 'gitconfig'
+
+  touch $HOME/.git_allowed_signers # must match the path in gitconfig
 }
 
 setup_vim(){
