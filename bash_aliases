@@ -49,7 +49,22 @@ alias vp='vim -p'
 alias wcl='wc -l'
 alias xs='cd ..'
 
-PS1='[\[\033[01;32m\]\u@\h\[\033[00;35m\]($(date +%H:%M:%S))\[\033[01;34m\]:\w\[\033[00;35m\]'
+# from https://jakemccrary.com/blog/2015/05/03/put-the-last-commands-run-time-in-your-bash-prompt/
+function timer_start {
+  timer=${timer:-$SECONDS}
+}
+function timer_stop {
+  timer_show=$(($SECONDS - $timer))
+  unset timer
+}
+trap 'timer_start' DEBUG
+if [ "$PROMPT_COMMAND" == "" ]; then
+  PROMPT_COMMAND="timer_stop"
+else
+  PROMPT_COMMAND="$PROMPT_COMMAND; timer_stop"
+fi
+
+PS1='[\[\033[01;32m\]\u@\h\[\033[00;35m\]($(date +%H:%M:%S))[${timer_show}s]\[\033[01;34m\]:\w\[\033[00;35m\]'
 if which git >/dev/null; then
 PS1=$PS1'$(__git_ps1 " (%s)")'
 fi
