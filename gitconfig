@@ -59,8 +59,6 @@
     prompt = false
 [init]
     defaultBranch = main
-[help]
-    autocorrect = prompt
 [branch]
     sort = -committerdate
 [commit]
