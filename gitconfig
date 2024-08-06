@@ -1,5 +1,6 @@
 [core]
     editor = vim
+    longpaths = true
 [alias]
     a  = add
     af = add -f
