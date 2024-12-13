@@ -48,6 +48,7 @@
     tagd = tag -d
     tagf = tag -f
     tagt = tag -f temp
+    tagt2 = tag -f temp2
 [color]
     ui = auto
 [diff]
