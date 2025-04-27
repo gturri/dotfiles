@@ -138,10 +138,12 @@ setup_vim(){
   cp -f vimrc .vrapperrc
   cp -f ideavimrc .ideavimrc
 
-  for DIR in autoload compiler ftdetect ftplugin indent plugin syntax; do
+  pushd vim >/dev/null
+  for DIR in *; do
     mkdir -p ~/.vim/$DIR
-    cp vim/$DIR/* ~/.vim/$DIR
+    cp $DIR/* ~/.vim/$DIR
   done
+  popd > /dev/null
 
 }
 
